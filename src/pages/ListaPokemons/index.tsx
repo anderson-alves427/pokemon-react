@@ -49,6 +49,7 @@ export const ListaPokemons = () => {
                 {listaPokemons.map(item => (
                     <div className="card-pokemon" key={item.data.id} onClick={ () => {
                         navigate(`/detalhe/${item.data.id}`);
+                        setPokemonSelecionado(item.data);
                     }}>
                         <img className="imagem-pokemon" src={item.data.sprites.front_default} alt={`pokemon ${item.data.forms[0].name}`} />
                         <p>{item.data.forms[0].name}</p>
