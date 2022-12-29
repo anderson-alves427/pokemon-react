@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { PokemonsService } from "../../shared/services/pokemons/PokemonsService";
 import { IListaPokemons } from "./interfaces/IListaPokemons";
@@ -7,23 +7,42 @@ import "./styles.css";
 export const ListaPokemons = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [listaPokemons, setListaPokemons] = useState<IListaPokemons[]>([]);
+    const [paginaAtual, setPaginaAtual] = useState(1);
+    const [totalPokemons, setTotalPokemons] = useState(0);
+
+    const handleClickButton = (valor: number) => {
+        setPaginaAtual((prevState => prevState + valor));
+    }
+
+    useEffect(() => {
+        PokemonsService.getCountTotalPokemons()
+        .then((result) => {
+
+            if (result instanceof Error) {
+                console.log(result.message);
+            return 0;
+            } else {
+                setTotalPokemons(result.data.count);
+
+        }});
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);
     
-        PokemonsService.getAll()
+        PokemonsService.getAll(paginaAtual)
         .then((result) => {
             setIsLoading(false);
 
             if (result instanceof Error) {
-            alert(result.message);
+                console.log(result.message);
             } else {
             console.log(result);
             setListaPokemons(result);
 
         }});
 
-      }, []);
+      }, [paginaAtual]);
       
     return (
         <>
@@ -48,6 +67,11 @@ export const ListaPokemons = () => {
                     </div>
                 ))}
             </section>
+
+            <div className="container-paginacao">
+                <button disabled={paginaAtual === 1} onClick={ ()=> handleClickButton(-1)}>Anterior</button>
+                <button onClick={ ()=> handleClickButton(+1)} disabled={paginaAtual*20 > totalPokemons}>Próxima</button>
+            </div>
         </>
     );
 }

@@ -1,12 +1,13 @@
+import { ICountTotalPokemons } from './interface/ICountTotalPokemons';
 import { Environment } from "../../environment";
 import { Api } from "../axios-config";
 
-const getAll = async (page = 1, filter = ''): Promise<any> => {
+const getAll = async (paginaAtual: number): Promise<any> => {
     try {
     
       let endpoints = [];
       
-      for (let i = 1; i < 11; i++) {
+      for (let i = 1 + (paginaAtual - 1)*20; i <= paginaAtual*20; i++) {
         endpoints.push(`${Environment.URL_BASE}/pokemon/${i}`);
       }
       
@@ -22,6 +23,26 @@ const getAll = async (page = 1, filter = ''): Promise<any> => {
   };
 
 
+  const getCountTotalPokemons = async (): Promise<ICountTotalPokemons | Error> => {
+    try {
+      
+      const urlRelativa = `/pokemon?offset=0&limit=1`;
+
+      const { data } = await Api.get(urlRelativa);
+
+      if (data) {
+        return {
+          data
+        };
+      }
+      return new Error('Erro ao pegar a quantidade máxima de pokemóns.');
+    } catch (error) {
+      console.error(error);
+      return new Error((error as { message: string }).message || 'Erro ao pegar a quantidade máxima de pokemóns.');
+    }
+  }
+
   export const PokemonsService = {
-    getAll
+    getAll,
+    getCountTotalPokemons
   };
