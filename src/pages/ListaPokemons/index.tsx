@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
+import { usePokemonContext } from "../../shared/context/pokemon-context/PokemonContext";
 import { PokemonsService } from "../../shared/services/pokemons/PokemonsService";
 import { IListaPokemons } from "./interfaces/IListaPokemons";
 import "./styles.css";
 
 export const ListaPokemons = () => {
+    const { pokemonSelecionado, setPokemonSelecionado } = usePokemonContext();
     const [isLoading, setIsLoading] = useState(true);
     const [listaPokemons, setListaPokemons] = useState<IListaPokemons[]>([]);
 
@@ -42,7 +44,9 @@ export const ListaPokemons = () => {
 
             <section className="lista-pokemons">
                 {listaPokemons.map(item => (
-                    <div className="card-pokemon" key={item.data.id}>
+                    <div className="card-pokemon" key={item.data.id} onClick={ () => {
+                        console.log(item);
+                    }}>
                         <img className="imagem-pokemon" src={item.data.sprites.front_default} alt={`pokemon ${item.data.forms[0].name}`} />
                         <p>{item.data.forms[0].name}</p>
                     </div>
