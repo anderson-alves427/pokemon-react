@@ -8,6 +8,7 @@ export const Menu = () => {
 
     const handleClick = (path: string): void => {
         navigate(path);
+        setPokemonSelecionado({});
     }
 
     return(
