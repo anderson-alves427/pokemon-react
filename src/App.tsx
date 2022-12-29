@@ -7,12 +7,12 @@ import { PokemonProvider } from "./shared/context/pokemon-context/PokemonContext
 function App() {
   return (
     <PokemonProvider >
-      <Menu /> 
-      <Container>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Menu /> 
+        <Container>
           <AppRoutes />
-        </BrowserRouter>
-      </Container>
+        </Container>
+      </BrowserRouter>
     </PokemonProvider>
   );
 }
