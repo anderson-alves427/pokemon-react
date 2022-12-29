@@ -1,0 +1,12 @@
+.container-master {
+    padding:  0 1rem;
+    min-height: 92vh;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .container-master {
+        width: 1200px;
+        margin: auto;
+    }
+}
