@@ -1,14 +1,20 @@
-import { ListaPokemons } from "./pages/ListaPokemons";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./routes";
 import { Container } from "./shared/components/Container";
 import { Menu } from "./shared/components/Menu";
+import { PokemonProvider } from "./shared/context/PokemonContext";
 
 function App() {
   return (
     <>
-      <Menu /> 
-      <Container>
-        <ListaPokemons />
-      </Container>
+      <PokemonProvider >
+      <BrowserRouter>
+        <Menu /> 
+        <Container>
+          <AppRoutes />
+        </Container>
+      </BrowserRouter>
+    </PokemonProvider>
     </>
   );
 }
