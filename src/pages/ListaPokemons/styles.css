@@ -65,7 +65,27 @@
     text-align: center;
     color: var(--text-light);
     font-size: 1.2rem;
+}
 
+.container-paginacao button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.container-paginacao button:hover {
+    opacity: 0.9;
+}
+
+.container-paginacao {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
