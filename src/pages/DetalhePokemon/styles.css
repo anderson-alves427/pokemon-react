@@ -1,0 +1,9 @@
+.section-detalhe {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.nome-pokemon {
+    font-size: 2rem;
+}

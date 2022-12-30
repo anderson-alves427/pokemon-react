@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { usePokemonContext } from "../../context/PokemonContext";
+import { usePokemonContext } from "../../context/pokemonContext/PokemonContext";
 import "./styles.css";
 
 export const Menu = () => {

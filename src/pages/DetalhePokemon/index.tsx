@@ -1,14 +1,14 @@
-import { usePokemonContext } from "../../shared/context/PokemonContext";
+import { usePokemonContext } from "../../shared/context/pokemonContext/PokemonContext";
 import "./styles.css";
 
 export const DetalhePokemon = () => {
   const { pokemonSelecionado } = usePokemonContext();
+  {console.log("---", pokemonSelecionado)}
 
   return (
     <section className="section-detalhe">
-      <div>Tela de detalhe do pokemon</div>
-      <span>Lista: </span>
-      <span>{pokemonSelecionado.id}</span>
+      <h2 className="nome-pokemon">{pokemonSelecionado.forms[0].name}</h2>
+      <img src={pokemonSelecionado} alt="" />
     </section>
   );
 }

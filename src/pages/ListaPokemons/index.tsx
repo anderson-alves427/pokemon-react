@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { usePokemonContext } from "../../shared/context/PokemonContext";
+import { usePokemonContext } from "../../shared/context/pokemonContext/PokemonContext";
 import { PokemonsService } from "../../shared/services/pokemons/PokemonsService";
 import { IListaPokemons } from "./interfaces/IListaPokemons";
 import "./styles.css";
 
 export const ListaPokemons = () => {
-    const { pokemonSelecionado, setPokemonSelecionado } = usePokemonContext();
+    const { setPokemonSelecionado } = usePokemonContext();
     const navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ export const ListaPokemons = () => {
     const [totalPokemons, setTotalPokemons] = useState(0);
 
     const handleClickButton = (valor: number) => {
-        setPaginaAtual((prevState => prevState + valor));
+        setPaginaAtual(prevState => prevState + valor);
     }
 
     useEffect(() => {
