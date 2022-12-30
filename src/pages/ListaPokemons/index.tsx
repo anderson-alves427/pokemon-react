@@ -12,11 +12,25 @@ export const ListaPokemons = () => {
     const navigate = useNavigate();
 
     const [listaPokemons, setListaPokemons] = useState<IListaPokemons[]>([]);
+    const [pokemonsFiltrados, setPokemonsFiltrados] = useState<IListaPokemons[]>([]);
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [totalPokemons, setTotalPokemons] = useState(0);
 
     const handleClickButton = (valor: number) => {
         setPaginaAtual(prevState => prevState + valor);
+        
+    }
+
+    const filtraPokemon = (value: string) => {
+        let filtro = [];
+
+        for (let i in listaPokemons) {
+            if (listaPokemons[i].data.forms[0].name.includes(value)) {
+                filtro.push(listaPokemons[i]);
+            }
+        }
+
+        setPokemonsFiltrados(filtro);
     }
 
     useEffect(() => {
@@ -42,6 +56,7 @@ export const ListaPokemons = () => {
             } else {
             console.log(result);
             setListaPokemons(result);
+            setPokemonsFiltrados(result);
 
         }});
 
@@ -57,13 +72,13 @@ export const ListaPokemons = () => {
                     <span>Pesquise:</span>
                     <div>
                         <BiSearchAlt />
-                        <input type="text" className="input-pesquisa" />
+                        <input type="text" className="input-pesquisa"  onChange={(e) => filtraPokemon(e.target.value)}/>
                     </div>
                 </div>
             </section>
 
             <section className="lista-pokemons">
-                {listaPokemons.map(item => (
+                {pokemonsFiltrados.map(item => (
                     <div className="card-pokemon" key={item.data.id} onClick={ () => {
                         navigate(`/detalhe/${item.data.id}`);
                         setPokemonSelecionado(item.data);

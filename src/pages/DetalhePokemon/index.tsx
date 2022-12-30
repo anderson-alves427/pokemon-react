@@ -15,7 +15,7 @@ export const DetalhePokemon = () => {
             <p className="p-detalhe">Habilidades</p>
             <ul>
               {pokemonSelecionado.abilities.map((habilidade, index) => (
-                <li key={index}>{habilidade.ability.name}</li>
+                <li className="descricao-atributos" key={index}>{habilidade.ability.name}</li>
               ))}
             </ul>
           </div>
@@ -23,7 +23,7 @@ export const DetalhePokemon = () => {
             <p className="p-detalhe">Tipo</p>
             <ul>
             {pokemonSelecionado.types.map((type, index) => (
-                <li key={index}>{type.type.name}</li>
+                <li className="descricao-atributos" key={index}>{type.type.name}</li>
               ))}
             </ul>
           </div>
@@ -32,7 +32,7 @@ export const DetalhePokemon = () => {
         <div className="atributos">
           {pokemonSelecionado.stats.map((item, index) => (
             <div className="span-atributos" key={index}>
-              <p>{item.stat.name}</p>
+              <p className="descricao-atributos">{item.stat.name}</p>
               <div className="container-atributo">
                 <div className="atributo-cor" 
                   style={{
