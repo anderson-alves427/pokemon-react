@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { usePokemonContext } from "../../shared/context/pokemonContext/PokemonContext";
+import { Environment } from "../../shared/environment";
 import { PokemonsService } from "../../shared/services/pokemons/PokemonsService";
 import { IListaPokemons } from "./interfaces/IListaPokemons";
 import "./styles.css";
@@ -10,7 +11,6 @@ export const ListaPokemons = () => {
     const { setPokemonSelecionado } = usePokemonContext();
     const navigate = useNavigate();
 
-    const [isLoading, setIsLoading] = useState(true);
     const [listaPokemons, setListaPokemons] = useState<IListaPokemons[]>([]);
     const [paginaAtual, setPaginaAtual] = useState(1);
     const [totalPokemons, setTotalPokemons] = useState(0);
@@ -33,11 +33,9 @@ export const ListaPokemons = () => {
     }, []);
 
     useEffect(() => {
-        setIsLoading(true);
     
         PokemonsService.getAll(paginaAtual)
         .then((result) => {
-            setIsLoading(false);
 
             if (result instanceof Error) {
                 console.log(result.message);
@@ -78,7 +76,7 @@ export const ListaPokemons = () => {
 
             <div className="container-paginacao">
                 <button disabled={paginaAtual === 1} onClick={ ()=> handleClickButton(-1)}>Anterior</button>
-                <button onClick={ ()=> handleClickButton(+1)} disabled={paginaAtual*20 > totalPokemons}>Próxima</button>
+                <button onClick={ ()=> handleClickButton(+1)} disabled={paginaAtual*Environment.LIMIT_SEARCH > totalPokemons}>Próxima</button>
             </div>
         </>
     );

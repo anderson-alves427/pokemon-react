@@ -7,7 +7,7 @@ const getAll = async (paginaAtual: number): Promise<any> => {
     
       let endpoints = [];
       
-      for (let i = 1 + (paginaAtual - 1)*20; i <= paginaAtual*20; i++) {
+      for (let i = 1 + (paginaAtual - 1)*Environment.LIMIT_SEARCH; i <= paginaAtual*Environment.LIMIT_SEARCH; i++) {
         endpoints.push(`${Environment.URL_BASE}/pokemon/${i}`);
       }
       
