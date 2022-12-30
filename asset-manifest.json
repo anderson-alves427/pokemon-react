@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/github-page/static/css/main.b30f1685.css",
+    "main.js": "/github-page/static/js/main.ccf23e27.js",
+    "static/js/787.0accbaf3.chunk.js": "/github-page/static/js/787.0accbaf3.chunk.js",
+    "static/media/pokemon-png-logo.webp": "/github-page/static/media/pokemon-png-logo.6a73a41fcca6b7bf9739.webp",
+    "index.html": "/github-page/index.html",
+    "main.b30f1685.css.map": "/github-page/static/css/main.b30f1685.css.map",
+    "main.ccf23e27.js.map": "/github-page/static/js/main.ccf23e27.js.map",
+    "787.0accbaf3.chunk.js.map": "/github-page/static/js/787.0accbaf3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b30f1685.css",
+    "static/js/main.ccf23e27.js"
+  ]
+}
