@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IPokemonSelecionado } from "../../context/pokemonContext/interface/IPokemonSelecionado";
 import { usePokemonContext } from "../../context/pokemonContext/PokemonContext";
+import logoPokemon from "../../../public/assets/pokemon-png-logo.webp";
 import "./styles.css";
 
 export const Menu = () => {
@@ -15,6 +16,7 @@ export const Menu = () => {
     return(
         <header className="header-menu">
             <div className="container-menu">
+                <img className="logo-pokemon" src={logoPokemon} alt="logo-pokemon" onClick={() => handleClick("/")}/>
                 <nav className="nav-menu">
                     <ul>
                         <li onClick={ () => handleClick("/")}>Inicio</li>

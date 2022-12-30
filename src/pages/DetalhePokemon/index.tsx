@@ -13,7 +13,7 @@ export const DetalhePokemon = () => {
       <div className="back" onClick={() => navigate("/")}>
         <IoArrowBackOutline size={32}/>
       </div>
-      {Object.keys(pokemonSelecionado).length === 0 ? (
+      {Object.keys(pokemonSelecionado).length > 0 ? (
         <>
           <h2 className="nome-pokemon">{pokemonSelecionado.forms[0].name}</h2>
           <img className="imagem-pokemon-detalhe" src={pokemonSelecionado.sprites.front_default} alt={`imagem pokemon${pokemonSelecionado.forms[0].name}`} />
@@ -45,7 +45,7 @@ export const DetalhePokemon = () => {
                   <div className="container-atributo">
                     <div className="atributo-cor" 
                       style={{
-                        width: `${(item.base_stat/120)*100}%`,
+                        width: `${(item.base_stat/180)*100}%`,
                         backgroundColor: `${item.stat.name === "hp" ? "green" : item.stat.name === "attack" ? "red" : item.stat.name === "defense" ? "blue" : item.stat.name === "special-attack" ? "yellow": item.stat.name === "special-defense" ? "brown": "gray"}`
                       }}
                     ></div>
