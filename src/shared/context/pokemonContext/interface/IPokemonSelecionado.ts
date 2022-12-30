@@ -5,6 +5,7 @@ import { IForms } from './IForms';
 import { IStats } from './IStats';
 
 export interface IPokemonSelecionado {
+    id: number;
     abilities: IAbilities[];
     sprites: ISprites;
     forms: IForms[];

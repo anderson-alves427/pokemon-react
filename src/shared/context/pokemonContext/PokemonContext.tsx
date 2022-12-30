@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react";
+import { IPokemonSelecionado } from "./interface/IPokemonSelecionado";
 
 interface IPokemonContextData {
-  pokemonSelecionado: any;
-  setPokemonSelecionado: React.Dispatch<any>;
+  pokemonSelecionado: IPokemonSelecionado;
+  setPokemonSelecionado: React.Dispatch<IPokemonSelecionado>;
 }
 
 interface IPokemonProviderProps {
@@ -13,7 +14,8 @@ const PokemonContext = createContext({} as IPokemonContextData);
 
 
 export const PokemonProvider: React.FC<IPokemonProviderProps> = ({ children }) => {
-  const [pokemonSelecionado, setPokemonSelecionado] = useState<any>({});
+  const [pokemonSelecionado, setPokemonSelecionado] = useState<IPokemonSelecionado>({} as IPokemonSelecionado);
+
   return (
       <PokemonContext.Provider
         value={{

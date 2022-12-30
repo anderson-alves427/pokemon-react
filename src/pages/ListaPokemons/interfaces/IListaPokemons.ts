@@ -1,3 +1,4 @@
+import { IPokemonSelecionado } from './../../../shared/context/pokemonContext/interface/IPokemonSelecionado';
 interface IForms {
     name: string;
 }
@@ -8,9 +9,5 @@ interface Isprites {
 
 export interface IListaPokemons {
 
-    data: {
-        id: number;
-        forms: IForms[];
-        sprites: Isprites;
-    }
+    data: IPokemonSelecionado
 }

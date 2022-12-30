@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { IPokemonSelecionado } from "../../context/pokemonContext/interface/IPokemonSelecionado";
 import { usePokemonContext } from "../../context/pokemonContext/PokemonContext";
 import "./styles.css";
 
@@ -8,7 +9,7 @@ export const Menu = () => {
 
     const handleClick = (path: string): void => {
         navigate(path);
-        setPokemonSelecionado({});
+        setPokemonSelecionado({} as IPokemonSelecionado);
     }
 
     return(
