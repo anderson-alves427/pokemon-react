@@ -67,7 +67,7 @@ export const ListaPokemons = () => {
         <>
             <section className="section-pokemon">
                 <h1 className="titulo-pokemon">
-                    Pokemon Api
+                    Pokemon em React
                 </h1>
                 <div className="container-pesquisa">
                     <span>Pesquise:</span>
@@ -86,6 +86,9 @@ export const ListaPokemons = () => {
                     }}>
                         <img className="imagem-pokemon" src={item.data.sprites.front_default} alt={`pokemon ${item.data.forms[0].name}`} />
                         <p>{item.data.forms[0].name}</p>
+                        <div className="div-button-detalhe">
+                            <button className="detalhes-pokemon-card">Ver mais</button>
+                        </div>
                     </div>
                 ))}
             </section>

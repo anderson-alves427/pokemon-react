@@ -48,7 +48,7 @@
 }
 
 .card-pokemon {
-    height: 300px;
+    height: 310px;
     width: 230px;
     background-color: var(--blue-light);
     border-radius: 10px;
@@ -66,6 +66,20 @@
     text-align: center;
     color: var(--text-light);
     font-size: 1.2rem;
+}
+
+.div-button-detalhe {
+    display: flex;
+    justify-content: center;
+}
+
+.detalhes-pokemon-card {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--text-strong);
 }
 
 .container-paginacao button {
