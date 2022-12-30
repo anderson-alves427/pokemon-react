@@ -23,9 +23,10 @@ export const ListaPokemons = () => {
 
     const filtraPokemon = (value: string) => {
         let filtro = [];
-
+        console.log(value.toLocaleLowerCase());
+        console.log('TESTE');
         for (let i in listaPokemons) {
-            if (listaPokemons[i].data.forms[0].name.includes(value)) {
+            if (listaPokemons[i].data.forms[0].name.includes(value.toLocaleLowerCase())) {
                 filtro.push(listaPokemons[i]);
             }
         }

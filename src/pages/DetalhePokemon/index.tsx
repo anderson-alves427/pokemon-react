@@ -1,11 +1,18 @@
 import { usePokemonContext } from "../../shared/context/pokemonContext/PokemonContext";
+import { IoArrowBackOutline } from "react-icons/io5";
+
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 
 export const DetalhePokemon = () => {
+  const navigate = useNavigate();
   const { pokemonSelecionado } = usePokemonContext();
 
   return (
     <section className="section-detalhe">
+      <div className="back" onClick={() => navigate("/")}>
+        <IoArrowBackOutline size={32}/>
+      </div>
       <h2 className="nome-pokemon">{pokemonSelecionado.forms[0].name}</h2>
       <img className="imagem-pokemon-detalhe" src={pokemonSelecionado.sprites.front_default} alt={`imagem pokemon${pokemonSelecionado.forms[0].name}`} />
       
