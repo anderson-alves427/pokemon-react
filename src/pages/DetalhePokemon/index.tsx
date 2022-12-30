@@ -10,7 +10,7 @@ export const DetalhePokemon = () => {
 
   return (
     <section className="section-detalhe">
-      <div className="back" onClick={() => navigate("/")}>
+      <div className="back" onClick={() => navigate("/pokemon-react")}>
         <IoArrowBackOutline size={32}/>
       </div>
       {Object.keys(pokemonSelecionado).length > 0 ? (

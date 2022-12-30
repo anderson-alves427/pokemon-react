@@ -16,10 +16,10 @@ export const Menu = () => {
     return(
         <header className="header-menu">
             <div className="container-menu">
-                <img className="logo-pokemon" src={logoPokemon} alt="logo-pokemon" onClick={() => handleClick("/")}/>
+                <img className="logo-pokemon" src={logoPokemon} alt="logo-pokemon" onClick={() => handleClick("/pokemon-react")}/>
                 <nav className="nav-menu">
                     <ul>
-                        <li onClick={ () => handleClick("/")}>Inicio</li>
+                        <li onClick={ () => handleClick("/pokemon-react")}>Inicio</li>
                         <li onClick={ () => handleClick("/sobre")}>Sobre</li>
                     </ul>
                 </nav>
