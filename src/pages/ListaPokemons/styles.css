@@ -37,7 +37,10 @@
 .lista-pokemons {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     min-height: 50vh;
 }
 
@@ -55,6 +58,8 @@
     transition: all .3s;
     -webkit-box-shadow: 5px 5px 16px -2px rgba(0,0,0,0.7); 
     box-shadow: 5px 5px 16px -2px rgba(0,0,0,0.7);
+    align-self: center;
+    justify-self: center;
 }
 
 .card-pokemon:hover {
